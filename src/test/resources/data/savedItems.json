@@ -1,0 +1,12 @@
+[
+  {
+    "title": "First todo",
+    "url": "/todo/1",
+    "completed": true
+  },
+  {
+    "title": "Second todo",
+    "url": "/todo/2",
+    "completed": false
+  }
+]
