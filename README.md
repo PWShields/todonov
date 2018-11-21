@@ -1,18 +1,9 @@
-tuno Java Exercise
+Todo
 =================
 
 With the unrelenting surge of new Todo Apps showcasing the latest front-end
 trends, this exercise involves creating a RESTful API to save user's todo items
 between sessions.
-
-You are free to implement this however you choose, using whatever frameworks or
-libraries you are comfortable with. No need to go overboard with the
-implementation, e.g. don't be too concerned about persisting the todo items
-between runs of the application - an in-memory data source is fine for our
-purposes. Some simple test cases would however be welcome to validate the
-implementation against the API specification.
-
-
 
 ### Tech Stack
 
@@ -160,11 +151,3 @@ record your answers along with the submission of the exercise:
     1. I would get rid of the TodoItem and rename the SavedTodoItem (to TodoItem). Having both is clinging to an obsolete Data Transfer Object pattern which adds no value when we have JSON and Jackson and have documented our API. Sometimes you still need Transfer objects for complex nested domain models or for divergent response representations, however this should be done on a needs basis, it is not needed in this instance.
     2. We are hand crafting a strictish RESTful pattern with the url field, Spring provides inbuilt support which provides automatic semantic linking, which might be more suitable, however it needs a slightly different implementation and responses are more verbose.
     3. Webflux and Netty support in Spring 5 provides a reactive, asynchronous option which probably should now be the default implementation for apps where we expect a large number of users 
-
-
-
-
-Thank You
----------
-
-If you have any questions, please don't hesitate to reach out for assistance!
