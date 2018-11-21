@@ -140,14 +140,11 @@ Status: `204`
 Further Considerations
 ----------------------
 
-After completing the above exercise, consider the following questions and
-record your answers along with the submission of the exercise:
-
 * How might you change the API specification to support multiple users?
 * How might you support high volumes of writes to the API?
 * How might you support high volumes of reads from the API?
 * How might you handle concurrent attempts to update the same item?
-* What other changes (if any) would you suggest making to the API?
+* Possible changes to API?
     1. I would get rid of the TodoItem and rename the SavedTodoItem (to TodoItem). Having both is clinging to an obsolete Data Transfer Object pattern which adds no value when we have JSON and Jackson and have documented our API. Sometimes you still need Transfer objects for complex nested domain models or for divergent response representations, however this should be done on a needs basis, it is not needed in this instance.
     2. We are hand crafting a strictish RESTful pattern with the url field, Spring provides inbuilt support which provides automatic semantic linking, which might be more suitable, however it needs a slightly different implementation and responses are more verbose.
     3. Webflux and Netty support in Spring 5 provides a reactive, asynchronous option which probably should now be the default implementation for apps where we expect a large number of users 

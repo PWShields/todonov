@@ -11,11 +11,6 @@ Feature: CRUD for Todo Items
     When  the item id is requested by id
     Then  the item is returned
 
-  Scenario: Create a new todo item
-    Given an incoming todo item
-    When  todo item is processed
-    Then  item is saved
-
   Scenario: Mark an existing todo item as completed
     Given   an existing incomplete todo item
     When    advised the item is completed
