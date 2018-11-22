@@ -1,15 +1,5 @@
 Feature: CRUD for Todo Items
-
-
-  Scenario: Fetch all todo items
-    Given existing Todo Items
-    When  all todo items are requested
-    Then  all todo items are returned
-
-  Scenario: Fetch a specific todo item
-    Given the todo item exists
-    When  the item id is requested by id
-    Then  the item is returned
+# Business Capability: create, read and update Todo_Items
 
   Scenario: Mark an existing todo item as completed
     Given   an existing incomplete todo item

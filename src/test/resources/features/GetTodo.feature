@@ -1,5 +1,5 @@
 Feature: Retrieve Todo Items
-
+# Business Capability: create, read and update Todo_Items
 
   Scenario: Fetch all todo items
     Given existing Todo Items
