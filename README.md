@@ -141,7 +141,7 @@ Further Considerations
 ----------------------
 
 * How might you change the API specification to support multiple users?
-        -   and 'user' to domain and to the urls
+        -   add 'user' to domain and to the urls
         -   add Spring security and JWT tokens so we know who the user is
 * How might you support high volumes of writes to the API?
         - set cloud to auto scale more instances of backend service 
