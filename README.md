@@ -141,9 +141,16 @@ Further Considerations
 ----------------------
 
 * How might you change the API specification to support multiple users?
+        -   and 'user' to domain and to the urls
+        -   add Spring security and JWT tokens so we know who the user is
 * How might you support high volumes of writes to the API?
+        - set cloud to auto scale more instances of backend service 
+        -  introduce a messaging queue to take pressure off datastore if this becomes an issue        
 * How might you support high volumes of reads from the API?
+        - as above for scalling, plus consider using a cache like infinispan or one of the commercial products to preload data
 * How might you handle concurrent attempts to update the same item?
+    - for Relational database rely on optimistic locking and alert user of failed modification attempt
+    - for NoSQL datasource use versioning and compare versions and alert user if they have stale version
 * Possible changes to API?
     1. I would get rid of the TodoItem and rename the SavedTodoItem (to TodoItem). Having both is clinging to an obsolete Data Transfer Object pattern which adds no value when we have JSON and Jackson and have documented our API. Sometimes you still Transfer objects for complex nested domain models or for divergent response representations, however this should be done on a needs basis, it is not needed in this instance.
     2. We are hand crafting a strictish RESTful pattern with the url field, Spring provides inbuilt support which provides automatic semantic linking, which might be more suitable, however it needs a slightly different implementation and responses are more verbose.
