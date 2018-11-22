@@ -147,7 +147,7 @@ Further Considerations
         - set cloud to auto scale more instances of backend service 
         -  introduce a messaging queue to take pressure off datastore if this becomes an issue        
 * How might you support high volumes of reads from the API?
-        - as above for scalling, plus consider using a cache like infinispan or one of the commercial products to preload data
+        - as above for scale, plus consider using a cache like infinispan or one of the commercial products to preload data
 * How might you handle concurrent attempts to update the same item?
     - for Relational database rely on optimistic locking and alert user of failed modification attempt
     - for NoSQL datasource use versioning and compare versions and alert user if they have stale version
