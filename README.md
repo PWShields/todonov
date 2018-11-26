@@ -21,6 +21,8 @@ I've added the beginnings of API documentation (needs a bit of tweaking)
 http://localhost:8080/swagger-ui.html#/
 http://localhost:8080/v2/api-docs
 
+https://todo-nov.appspot.com/swagger-ui.html#/todo-item-controller
+
 
 API Specification
 -----------------
