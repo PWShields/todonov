@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -44,10 +43,10 @@ public class TodoItemServiceImpl implements TodoItemService {
 	}
 
 	@Override
-	public SavedTodoItem updateAndReplace(@Valid SavedTodoItem item, Long id) {
-		todoItemRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND));
-		item.setId(id);
-		return todoItemRepository.save(item);
+	public SavedTodoItem updateAndReplace(Boolean isComplete, Long id) {
+		SavedTodoItem existingItem = todoItemRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND));
+		existingItem.setCompleted(isComplete);
+		return todoItemRepository.save(existingItem);
 	}
 
 	@Override

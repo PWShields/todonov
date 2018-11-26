@@ -99,4 +99,40 @@ public class TodoItemStepDefinitions extends SpringBootBaseIntegrationTest {
 		assertThat(lastItem.getTitle(), is("Last todo"));
 		assertThat(lastItem.getUrl(), is("/todo/4"));
 	}
+
+	@Given("an existing incomplete todo item")
+	public void an_existing_incomplete_todo_item() {
+		assertThat(todoItemRepository.findById(4L).get().getCompleted(), is(false));
+	}
+
+	@When("advised the item is completed")
+	public void advised_the_item_is_completed() {
+		SavedTodoItem item = todoItemRepository.findById(4L).get();
+		savedTodoItem = put(true, item.getId());
+	}
+
+	@Then("the item is saved as completed")
+	public void the_item_is_saved_as_completed() {
+		assertThat(savedTodoItem.getCompleted(), is(true));
+	}
+
+	@Given("an existing todo item")
+	public void an_existing_todo_item() {
+		assertThat(todoItemRepository.findById(1L).get().getId(), is(1L));
+	}
+
+	@When("requested to delete the item")
+	public void requested_to_delete_the_item() {
+		delete(1L);
+	}
+
+
+
+	@Then("the item is no longer available")
+	public void the_item_is_no_longer_available() {
+		assertThat(todoItemRepository.findById(1L).isPresent(), is(false));
+	}
+
+
+
 }

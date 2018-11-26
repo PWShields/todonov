@@ -4,7 +4,6 @@ package com.puffinpowered.todonov.service;
 import com.puffinpowered.todonov.domain.SavedTodoItem;
 import com.puffinpowered.todonov.domain.transfer.TodoItem;
 
-import javax.validation.Valid;
 import java.util.List;
 
 public interface TodoItemService {
@@ -14,7 +13,7 @@ public interface TodoItemService {
 
 	SavedTodoItem findOne(Long id);
 
-	SavedTodoItem updateAndReplace(@Valid SavedTodoItem institution, Long id);
+	SavedTodoItem updateAndReplace(Boolean isComplete, Long id);
 
 	void delete(Long id);
 }

@@ -156,3 +156,7 @@ Further Considerations
     2. We are hand crafting a strictish RESTful pattern with the url field, Spring provides inbuilt support which provides automatic semantic linking, which might be more suitable, however it needs a slightly different implementation and responses are more verbose.
     3. Webflux and Netty support in Spring 5 provides a reactive, asynchronous option which probably should now be the default implementation for apps where we expect a large number of users
     4. With the Cucumber tests I'm trialling a more granular approach to see if it makes TDD easier, by making a distinction between a feature and a business capability, i.e a number of features deliver a business capability 
+    5. The PUT request is not RESTful. We should not use VERBS or ADVERBS only NOUNS. The "completed" is redundant as
+    we are performing a partial update. This also should be a PATCH, a proper PUT should contain all necessary data
+    in the request and replace the existing entity, which removes the temptation to make different endpoints for
+    slightly different purposes, which is quite wastefu.

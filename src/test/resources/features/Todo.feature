@@ -12,18 +12,4 @@ Feature: CRUD for Todo Items
     Then    the item is no longer available
 
 
-  Scenario: Attempt to fetch item that doesn't exist
-    When we request an id that is not available
-    Then an item not found exception occurs
-
-  Scenario: Attempt to update an item that doesn't exist
-    When we attempt to update an item that is not available
-    Then an item not found exception occurs
-
-  Scenario: Attempt to delete an item that doesn't exist
-    When we attempt to delete an item that doesn't exist
-    Then an itme not found exception occurs
-
-
-
 

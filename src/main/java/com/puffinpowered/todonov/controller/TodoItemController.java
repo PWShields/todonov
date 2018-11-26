@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -39,9 +38,9 @@ public class TodoItemController {
 		return todoItemService.findOne(id);
 	}
 
-	@PutMapping("/{id}")
-	public SavedTodoItem updateAndReplace(@PathVariable(value = "id") Long id, @Valid @RequestBody SavedTodoItem institution) {
-		return todoItemService.updateAndReplace(institution, id);
+	@PutMapping("/{id}/completed")
+	public SavedTodoItem updateAndReplace(@PathVariable(value = "id") Long id, @RequestBody Boolean isComplete) {
+		return todoItemService.updateAndReplace(isComplete, id);
 	}
 
 	@DeleteMapping("/{id}")

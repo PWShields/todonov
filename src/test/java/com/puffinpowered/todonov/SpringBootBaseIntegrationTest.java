@@ -34,12 +34,19 @@ public abstract class SpringBootBaseIntegrationTest {
 		return SERVER_URL + ":" + port + TODO_ENDPOINT;
 	}
 
-	protected int put(final TodoItem something) {
-		return restTemplate.postForEntity(todoEndpoint(), something, Void.class).getStatusCodeValue();
+	protected SavedTodoItem put(Boolean isComplete, Long id)  {
+		     String putEndPoint = todoEndpoint()+"/"+id+"/completed";
+		restTemplate.put(todoEndpoint()+"/"+id+"/completed", isComplete, Void.class);
+		return getById(id);
 	}
 
 	 protected ResponseEntity<SavedTodoItem> post(final TodoItem newItem){
 		return restTemplate.postForEntity(todoEndpoint(),newItem, SavedTodoItem.class);
+	 }
+
+protected void delete(Long id){
+	String deleteEndPoint = todoEndpoint()+"/"+id;
+	 	restTemplate.delete(deleteEndPoint);
 	 }
 
 	protected ResponseEntity<List<SavedTodoItem>> getAll() {
@@ -51,7 +58,7 @@ public abstract class SpringBootBaseIntegrationTest {
 				});
 	}
 
-	protected SavedTodoItem getById(Long id){
+	protected SavedTodoItem getById(Long id) {
 		return restTemplate.getForObject(todoEndpoint()+"/"+id, SavedTodoItem.class);
 	}
 
