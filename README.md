@@ -167,4 +167,6 @@ Further Considerations
     5. The PUT request is not RESTful. We should not use VERBS or ADVERBS only NOUNS. The "completed" is redundant as
     we are performing a partial update. This also should be a PATCH, a proper PUT should contain all necessary data
     in the request and replace the existing entity, which removes the temptation to make different endpoints for
-    slightly different purposes, which is quite wastefu.
+    slightly different purposes, which is quite wasteful.
+    
+* Also note I've used Cucumber for BDD testing, still evaluating...
