@@ -14,6 +14,14 @@ between sessions.
 - Cucumber, JUnit 4
 - SpringFox Swagger
 
+#### Swagger API Doco
+
+I've added the beginnings of API documentation (needs a bit of tweaking)
+
+http://localhost:8080/swagger-ui.html#/
+http://localhost:8080/v2/api-docs
+
+
 API Specification
 -----------------
 
