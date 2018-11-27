@@ -5,9 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMethod;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseMessageBuilder;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Collections;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -20,6 +24,7 @@ public class SwaggerConfig {
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.puffinpowered.todonov"))
 				.build()
+                .apiInfo(apiInfo())
 				.useDefaultResponseMessages(false)
 				.globalResponseMessage(RequestMethod.GET, newArrayList(new ResponseMessageBuilder().code(404)
 						.message("Item does not exist")
@@ -33,4 +38,14 @@ public class SwaggerConfig {
 				;
 
 	}
+
+    private ApiInfo apiInfo() {
+        return new ApiInfo(
+                "Todo API",
+                "November 2018",
+                "1.0",
+                "",
+                new Contact("", "", ""),
+                "", "", Collections.emptyList());
+    }
 }
